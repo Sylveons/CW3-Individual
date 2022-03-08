@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <h1>{{ sitename }}</h1>
-    
+   
     </header>
     <main>
       <product-list :lessons="lessons" @addProduct="addToCart"></product-list>
@@ -22,6 +22,7 @@ components: {ProductList, CheckoutForm},
   data(){
     return{
     sitename: "After school club",
+    Checkout: true,
     lessons: {},
     cart: [],
   
@@ -70,27 +71,17 @@ components: {ProductList, CheckoutForm},
 methods: {
 addToCart(lesson) {
 this.cart.push(lesson);
-lesson.Spaces -- // the inventory can be easily updated
+lesson.Spaces --; 
 },
 removeProduct(lesson) {
-this.cart.splice(this.cart.indexOf(lesson),1)
-lesson.Spaces ++ // the inventory can be easily updated
+this.cart.splice(this.cart.indexOf(lesson),1);
+
+lesson.Spaces ++;
 },
 
+}
 
-showCheckout() {
-
-                        this.CheckoutForm = this.Checkout ? false : true;
-
-
-
-
-                    },
-
-},
-};
-
-  
+}
 
 
 </script>
