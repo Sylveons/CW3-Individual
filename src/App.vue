@@ -1,0 +1,84 @@
+<template>
+  <div id="app">
+    <header>
+      <h1>{{ sitename }}</h1>
+      <button @click="showCheckout">{{ this.cart.length }} Checkout</button>
+    </header>
+    <main>
+      <product-list :lessons="lessons" @addProduct="addToCart"></product-list>
+      <!-- <checkout :cart="cart" @removeProduct="removeProduct"></checkout> -->
+    </main>
+  </div>
+</template>
+<script>
+
+import ProductList from "./components/LessonsList.vue";
+
+
+export default {
+name: "App",
+components: {ProductList},
+  data(){
+    return{
+    sitename: "After school club",
+    lessons: {},
+    cart: [],
+  
+
+
+    }
+
+  },
+
+  
+            created: function () {
+              let that = this
+                          fetch('http://dominique-walker-cst1345-cw2.herokuapp.com/lessons').then(
+                              function (response) {
+
+                                  response.json().then(
+                                      function (json) {
+
+                                        that.lessons = json;
+
+                                          console.log(JSON.stringify(json))
+                                          that.lessons.push(json)
+                                          console.log("lessons retreived sucessfully");
+                                      });
+
+          },
+
+                          )
+
+      },
+      
+    
+      
+       
+    
+   
+
+  
+
+
+
+
+
+  
+
+methods: {
+addToCart(lesson) {
+this.cart.push(lesson);
+lesson.availableInventory -- // the inventory can be easily updated
+},
+removeProduct(lesson) {
+this.cart.splice(this.cart.indexOf(lesson),1)
+lesson.availableInventory ++ // the inventory can be easily updated
+}
+},
+};
+
+  
+
+
+</script>
