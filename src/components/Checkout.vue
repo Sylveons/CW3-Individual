@@ -2,15 +2,22 @@
 <div>
 <h2>Checkout</h2>
 <h3>Added products</h3>
-<div v-for='product in cart' :key="product.id">
-{{product.title}}
+<div v-for='lesson in cart' :key="lesson.id">
+{{lesson.Subject}}
+{{lesson.Location}}
 <button @click='remove(product)'>remove</button>
 </div>
 <p>
 <strong>Name </strong>
 <input v-model="name" />
 <strong> Address </strong>
-<input v-model="address" /> <button>Submit</button>
+<input v-model="address" /> 
+<strong> Phone Number </strong>
+<input v-model="phonenumber" /> 
+  <button class="checkoutbutton" v-on:click="showCheckout()" v-bind:disabled="cart.length === 0">
+                    <!-- add the cart icon -->
+                    {{this.cart.length}} Checkout
+                </button>
 </p>
 </div>
 </template>
@@ -20,7 +27,7 @@ export default {
 name: "CheeckoutForm",
 props: ['cart'],
 data() {
-return { name: "" , address: ""};
+return { name: "" , address: "", PhoneNumber: "",};
 },
 methods: {
 remove(lesson) {

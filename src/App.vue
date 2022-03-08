@@ -2,7 +2,7 @@
   <div id="app">
     <header>
       <h1>{{ sitename }}</h1>
-      <button @click="showCheckout">{{ this.cart.length }} Checkout</button>
+    
     </header>
     <main>
       <product-list :lessons="lessons" @addProduct="addToCart"></product-list>
@@ -75,7 +75,18 @@ lesson.Spaces -- // the inventory can be easily updated
 removeProduct(lesson) {
 this.cart.splice(this.cart.indexOf(lesson),1)
 lesson.Spaces ++ // the inventory can be easily updated
-}
+},
+
+
+showCheckout() {
+
+                        this.CheckoutForm = this.Checkout ? false : true;
+
+
+
+
+                    },
+
 },
 };
 
