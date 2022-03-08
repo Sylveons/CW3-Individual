@@ -3,9 +3,12 @@
     <div v-for="lesson in lessons" :key="lesson.id">
       <h2>{{ lesson.Subject }}</h2>
       <figure>
-        <img v-bind:src="lesson.Image" />
+        <img v-bind:src="lesson.Image"
+         width="150"
+  height="150">
+        
       </figure>
-      <p>Location: {{ lesson.Location }}></p>
+      <p>Location: {{ lesson.Location }}</p>
       <p>Price: {{ lesson.Price }}</p>
       <p>Available stock: {{ lesson.Spaces }}</p>
       <button @click="addToCart(lesson)">Add to cart</button>

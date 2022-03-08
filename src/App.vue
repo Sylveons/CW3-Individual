@@ -6,18 +6,19 @@
     </header>
     <main>
       <product-list :lessons="lessons" @addProduct="addToCart"></product-list>
-      <!-- <checkout :cart="cart" @removeProduct="removeProduct"></checkout> -->
+      <checkout-form :cart="cart" @removeProduct="removeProduct"></checkout-form>
     </main>
   </div>
 </template>
 <script>
 
 import ProductList from "./components/LessonsList.vue";
+import CheckoutForm from "./components/Checkout.vue";
 
 
 export default {
 name: "App",
-components: {ProductList},
+components: {ProductList, CheckoutForm},
   data(){
     return{
     sitename: "After school club",
@@ -69,11 +70,11 @@ components: {ProductList},
 methods: {
 addToCart(lesson) {
 this.cart.push(lesson);
-lesson.availableInventory -- // the inventory can be easily updated
+lesson.Spaces -- // the inventory can be easily updated
 },
 removeProduct(lesson) {
 this.cart.splice(this.cart.indexOf(lesson),1)
-lesson.availableInventory ++ // the inventory can be easily updated
+lesson.Spaces ++ // the inventory can be easily updated
 }
 },
 };
