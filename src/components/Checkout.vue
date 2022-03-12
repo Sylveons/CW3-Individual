@@ -14,8 +14,7 @@
 <input v-model="address" /> 
 <strong> Phone Number </strong>
 <input v-model="phonenumber">
-  <button class="checkoutbutton" v-on:click="showCheckout()" v-bind:disabled="cart.length === 0">
-                    {{this.cart.length}} <i class="fas fa-shopping-cart"></i>Checkout
+  <button class="checkoutbutton"><i class="fas fa-check"></i>Submit
                 </button> 
  
 </p>
