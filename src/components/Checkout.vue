@@ -1,5 +1,5 @@
 <template>
-<div id = "checkout">
+<div class = "checkout">
 <h2>Checkout</h2>
 <h3>Added products</h3>
 <div v-for='lesson in cart' :key="lesson.id">
@@ -12,10 +12,10 @@
 <input v-model="name" />
 <strong> Address </strong>
 <input v-model="address" /> 
-<!-- <strong> Phone Number </strong>
-<input v-model="phonenumber"> -->
+<strong> Phone Number </strong>
+<input v-model="phonenumber">
   <button class="checkoutbutton" v-on:click="showCheckout()" v-bind:disabled="cart.length === 0">
-                    {{this.cart.length}} Checkout
+                    {{this.cart.length}} <i class="fas fa-shopping-cart"></i>Checkout
                 </button> 
  
 </p>
@@ -30,7 +30,7 @@ props: ['cart'],
 data() {
 return {
    isVisible: false,
-  name: "" , address: "", PhoneNumber: "",};
+  name: "" , address: "", phonenumber: "",};
 },
 
 methods: {

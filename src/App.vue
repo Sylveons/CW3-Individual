@@ -2,12 +2,13 @@
   <div id="app">
     <header>
       <h1>{{ sitename }}</h1>
-       <button class="checkoutbutton" v-on:click="showCheckout()" v-bind:disabled="cart.length === 0">
-                    <!-- add the cart icon -->
-                    {{this.cart.length}} Checkout
+      <button class="checkoutbutton" v-on:click="showCheckout()" v-bind:disabled="cart.length === 0">
+                    {{this.cart.length}} <i class="fas fa-shopping-cart"></i>Checkout
                 </button> 
  
-   
+ 
+       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.12.1/css/all.css" crossorigin="anonymous">
+
     </header>
     <main>
       <product-list :lessons="lessons" @addProduct="addToCart"></product-list>
@@ -85,21 +86,11 @@ lesson.Spaces ++;
 
 
   showCheckout() {
-  const x =document.getElementById("form");
+document.getElementsByClassName('checkout')[0].style.display = 'block';
 
-  if (x.style.display === "none") {
-    x.style.display = "block";
-  } else {
-    x.style.display = "none";
-  }
 }
 }
 
 }
-
-
-
-
-
 
 </script>
