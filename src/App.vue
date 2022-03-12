@@ -29,7 +29,7 @@ components: {ProductList, CheckoutForm},
     return{
     sitename: "After school club",
   
-    lessons: {},
+    lessons: [],
     cart: [],
   
 
@@ -88,8 +88,15 @@ lesson.Spaces ++;
   showCheckout() {
 document.getElementsByClassName('checkout')[0].style.display = 'block';
 
+},
+
+
+
+
+
+
 }
-}
+
 
 }
 

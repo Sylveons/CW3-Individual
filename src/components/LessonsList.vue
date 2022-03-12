@@ -10,8 +10,7 @@
       <p>Available stock: {{ lesson.Spaces }}</p>
          <button class="add to cart" v-on:click="addToCart(lesson)"
                         v-bind:disabled="lesson.Spaces === 0 ">Add to
-                        cart</button>
-    </div>
+                        cart</button> </div>
   </main>
 </template>
 
