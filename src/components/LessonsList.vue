@@ -28,6 +28,7 @@ export default {
     addToCart(lesson) {
       this.$emit("addProduct", lesson);
     },
+    
   },
 };
 </script>

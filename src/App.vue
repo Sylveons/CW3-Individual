@@ -2,6 +2,11 @@
   <div id="app">
     <header>
       <h1>{{ sitename }}</h1>
+       <button class="checkoutbutton" v-on:click="showCheckout()" v-bind:disabled="cart.length === 0">
+                    <!-- add the cart icon -->
+                    {{this.cart.length}} Checkout
+                </button> 
+ 
    
     </header>
     <main>
@@ -22,7 +27,7 @@ components: {ProductList, CheckoutForm},
   data(){
     return{
     sitename: "After school club",
-    Checkout: true,
+  
     lessons: {},
     cart: [],
   
@@ -75,13 +80,26 @@ lesson.Spaces --;
 },
 removeProduct(lesson) {
 this.cart.splice(this.cart.indexOf(lesson),1);
-
 lesson.Spaces ++;
 },
 
+
+  showCheckout() {
+  const x =document.getElementById("form");
+
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "none";
+  }
+}
 }
 
 }
+
+
+
+
 
 
 </script>
